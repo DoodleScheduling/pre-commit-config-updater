@@ -8,7 +8,7 @@ def main(argv=None) -> int:
         "--base-url",
         help="URL for config storage",
         dest="base_url",
-        default="https://raw.githubusercontent.com/DoodleScheduling/pre-commit-config-updater/fix-click-unicode-ci-cd",
+        default="https://raw.githubusercontent.com/DoodleScheduling/pre-commit-config-updater/master",
     )
     parser.add_argument(
         "--configs",
