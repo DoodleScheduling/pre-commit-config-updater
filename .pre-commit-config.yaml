@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/DoodleScheduling/pre-commit-config-updater
-    rev: fixclickunicode-v7
+    rev: fixclickunicode-v8
     hooks:
     - id: pre-commit-config-updater
       always_run: true
@@ -19,8 +19,8 @@ repos:
     hooks:
     - id: black
       language_version: python3
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+-   repo: https://github.com/pycqa/flake8
+    rev: 4.0.1
     hooks:
     - id: flake8
 -   repo: https://github.com/godaddy/tartufo
