@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/DoodleScheduling/pre-commit-config-updater
-    rev: fixclickunicode
+    rev: fixclickunicode-v3
     hooks:
     - id: pre-commit-config-updater
       always_run: true
