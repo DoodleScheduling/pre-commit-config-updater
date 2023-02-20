@@ -3,6 +3,7 @@ repos:
     rev: master
     hooks:
     - id: pre-commit-config-updater
+      additional_dependencies: [tomlkit]
       always_run: true
 -   repo: https://github.com/asottile/seed-isort-config
     rev: v2.2.0

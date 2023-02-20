@@ -2,20 +2,21 @@ import argparse
 import shutil
 import urllib.request
 
-import toml
+import tomlkit
 
 
 def init_toml(toml_file: str):
-    headers = ["tool.isort", "tool.black"]
+    tools = ["isort", "black"]
 
     with open(toml_file, "r") as f:
-        config = toml.load(f)
+        config = tomlkit.parse(f.read())
 
-    for header in headers:
-        del config[header]
+    for tool in tools:
+        if config["tool"].get(tool) is not None:
+            del config["tool"][tool]
 
     with open(toml_file, "w") as f:
-        toml.dump(config, f)
+        f.write(tomlkit.dumps(config))
 
 
 def main(argv=None) -> int:
