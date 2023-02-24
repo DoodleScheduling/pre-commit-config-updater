@@ -31,7 +31,7 @@ def main(argv=None) -> int:
         "--configs",
         help="| separated config files found at `base_url`",
         dest="configs",
-        default=".pre-commit-config.yaml|pyproject.toml|.flake8",
+        default=".pre-commit-config.yaml|pyproject.toml|.flake8|tartufo.toml",
     )
     args = parser.parse_args(argv)
 
