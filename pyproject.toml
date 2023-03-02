@@ -7,10 +7,10 @@ enable = true
 vcs = "git"
 latest-tag= true
 style = "pep440"
-pump = true
+bump = true
 format-jinja = """
     {%- if stage is not none -%}
-        {{ base }}+{{ stage }}
+        {{ base }}+{{ stage }}.{{commit}}
     {%- else -%}
         {{ base }}
     {%- endif -%}
