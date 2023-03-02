@@ -8,7 +8,13 @@ vcs = "git"
 latest-tag= true
 style = "pep440"
 pump = true
-format-jinja = "{{ base }}+{{ stage }}"
+format-jinja = """
+    {%- if stage is not none -%}
+        {{ base }}+{{ stage }}
+    {%- else -%}
+        {{ base }}
+    {%- endif -%}
+"""
 
 [tool.isort]
 multi_line_output = 3
