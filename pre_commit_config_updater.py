@@ -6,10 +6,13 @@ import tomlkit
 
 
 def init_toml(toml_file: str):
-    tools = ["isort", "black"]
+    tools = ["isort", "black", "poetry-dynamic-versioning"]
 
     with open(toml_file, "r") as f:
         config = tomlkit.parse(f.read())
+
+    if "build-system" in config.keys():
+        del config["build-system"]
 
     for tool in tools:
         if config["tool"].get(tool) is not None:
