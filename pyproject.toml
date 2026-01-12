@@ -1,3 +1,21 @@
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+latest-tag= true
+style = "pep440"
+bump = true
+format-jinja = """
+    {%- if stage is not none -%}
+        {{ base }}+{{ stage }}.{{commit}}
+    {%- else -%}
+        {{ base }}
+    {%- endif -%}
+"""
+
 [tool.isort]
 multi_line_output = 3
 include_trailing_comma = true

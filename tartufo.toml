@@ -1,5 +1,0 @@
-[tool.tartufo]
-exclude-path-patterns =  [
- {path-pattern = 'poetry\.lock'},
- {path-pattern = 'pyproject\.toml'}
-]
