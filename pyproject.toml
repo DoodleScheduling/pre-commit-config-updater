@@ -1,26 +1,24 @@
-[tool.isort]
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-use_parantheses = true
-line_length = 120
-lines_after_imports = 2
-
-[tool.black]
+[tool.ruff]
 line-length = 120
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | egg-info
-  | buck-out
-  | build
-  | dist
-  | env
-)/
-'''
+target-version = "py312"
+
+[tool.ruff.lint]
+# B = bugbear, C90 = mccabe, E/W = pycodestyle, F = pyflakes, I = isort,
+# UP = pyupgrade, SIM = flake8-simplify
+select = ["E", "W", "F", "C90", "B", "I", "UP", "SIM"]
+ignore = [
+    "E203",  # whitespace before ':' (handled by the formatter)
+    "E266",  # too many leading '#' for block comment
+    "E501",  # line too long (handled by the formatter)
+    "F403",  # 'from module import *' used
+    "F541",  # f-string without any placeholders
+    "E702",  # multiple statements on one line (semicolon)
+    "E731",  # do not assign a lambda expression
+    "E741",  # ambiguous variable name
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 18
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
