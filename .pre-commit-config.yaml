@@ -12,7 +12,7 @@ repos:
     - id: check-added-large-files
     - id: debug-statements
 -   repo: https://github.com/DoodleScheduling/pre-commit-config-updater
-    rev: v19
+    rev: v20
     hooks:
     - id: pre-commit-config-updater
       additional_dependencies: [tomlkit]
