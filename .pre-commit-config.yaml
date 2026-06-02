@@ -5,12 +5,14 @@ repos:
     - id: trailing-whitespace
     - id: end-of-file-fixer
     - id: check-yaml
+      # Skip templated YAML (Helm chart templates, *.tmpl.yaml) that isn't valid YAML.
+      exclude: \.tmpl\.ya?ml$|(^|/)templates/.*\.ya?ml$
     - id: check-toml
     - id: check-merge-conflict
     - id: check-added-large-files
     - id: debug-statements
 -   repo: https://github.com/DoodleScheduling/pre-commit-config-updater
-    rev: v18
+    rev: v19
     hooks:
     - id: pre-commit-config-updater
       additional_dependencies: [tomlkit]
@@ -18,10 +20,8 @@ repos:
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.15
     hooks:
-    # Linter + import sorting (isort) + unused-import removal (autoflake)
     - id: ruff-check
       args: [--fix]
-    # Formatter (drop-in replacement for black)
     - id: ruff-format
 -   repo: https://github.com/gitleaks/gitleaks
     rev: v8.30.0
