@@ -6,7 +6,9 @@ import tomlkit
 
 
 def init_toml(toml_file: str):
-    tools = ["isort", "black"]
+    # Strip legacy tool tables (isort/black) so repos migrating off them are cleaned,
+    # and ruff so repeated runs don't duplicate the appended config.
+    tools = ["isort", "black", "ruff"]
 
     with open(toml_file, "r") as f:
         config = tomlkit.parse(f.read())
@@ -31,7 +33,7 @@ def main(argv=None) -> int:
         "--configs",
         help="| separated config files found at `base_url`",
         dest="configs",
-        default=".pre-commit-config.yaml|pyproject.toml|.flake8",
+        default=".pre-commit-config.yaml|pyproject.toml",
     )
     args = parser.parse_args(argv)
 

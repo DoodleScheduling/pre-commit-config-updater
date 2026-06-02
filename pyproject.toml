@@ -7,14 +7,8 @@ target-version = "py312"
 # UP = pyupgrade, SIM = flake8-simplify
 select = ["E", "W", "F", "C90", "B", "I", "UP", "SIM"]
 ignore = [
-    "E203",  # whitespace before ':' (handled by the formatter)
-    "E266",  # too many leading '#' for block comment
-    "E501",  # line too long (handled by the formatter)
-    "F403",  # 'from module import *' used
-    "F541",  # f-string without any placeholders
-    "E702",  # multiple statements on one line (semicolon)
-    "E731",  # do not assign a lambda expression
-    "E741",  # ambiguous variable name
+    "E203",  # whitespace before ':' — conflicts with the formatter
+    "E501",  # line length — enforced by the formatter
 ]
 
 [tool.ruff.lint.mccabe]
